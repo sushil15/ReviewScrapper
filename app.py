@@ -32,7 +32,6 @@ def index():
             movieFRes = requests.get(movieLink)
             movieFRes.encoding = 'utf-8'
             movieF_html = bs(movieFRes.text, "html.parser")
-            print(movieF_html)
             commentboxes = movieF_html.find_all('div', {'class': "user-comments"})
             allcomment=commentboxes[0].find_all('a')
             allcommentLink="https://www.imdb.com"+allcomment[len(allcomment)-1]['href']
@@ -40,7 +39,6 @@ def index():
             commentRes = requests.get(allcommentLink)
             commentRes.encoding = 'utf-8'
             comment_html = bs(commentRes.text, "html.parser")
-            print(comment_html)
             allc=comment_html.find_all('div', {'class':"lister-item mode-detail imdb-user-review collapsable"})
 
             reviews = []
