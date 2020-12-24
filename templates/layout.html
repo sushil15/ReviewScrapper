@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+     crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}" type="text/css">
+    <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+    <title>ReviewScrapper</title>
+</head>
+<body>
+  <!-- header start -->
+   <header class="container-fluid header">
+       <div class="row">
+           <div class="col-12">
+            <nav class="navbar navbar-expand-lg">
+              <a class="navbar-brand " href="/"><img class="img-fluid" style="max-width:200px;max-height:100px;" src="../static/images/barnd-final-cut.png"/></a>
+              <button class="navbar-toggler bg-dark navbar-light" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+              </button>
+            
+              <div class="collapse navbar-collapse navigation " id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-auto mr-5">
+                  <li class="nav-item ">
+                    <a class="nav-link mr-5" href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link mr-5" href="#search-div-id">Search</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link mr-5" href="#about-div-id">About</a>
+                  </li>
+                  </ul>
+                </div>
+            </nav>
+           </div>
+       </div>
+       <div class="row ml-2">
+           <div class="col-md-6  corousal-img">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img  src="../static/images/movies3.jpg"  class="d-block w-100 img-fluid " alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Reviews Of Movies</h5>
+                   </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img  src="../static/images/webseries.jpg " class="d-block w-100 img-fluid " alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Reviews Of Web Series</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../static/images/tvshows.jpg" class="d-block w-100 img-fluid " alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Reviews Of TV shows</h5>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExamplCaptions"  data-slide="prev">
+        
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions"  data-slide="next">
+                 
+                </a>
+              </div>
+           </div>
+           <div class="col-md-6 mt-4 text-center content">
+             <h1>Review Scrapper</h1>
+             <h4>Get reviews of movies,web series,tv shows</h4>
+             <a   href="#search-div-id"class="btn btn-primary">Search</a>
+           </div>
+       </div>
+   </header>
+   <!-- header end -->
+   {% block result %}{% endblock %}
+   <!-- search bar  start-->
+
+   <div onsubmit="preloader()" class="container search-div mt-4 mb-4" id="search-div-id" >
+     <div class="row ">
+       <div class="col-12">
+        <form action="/review" method="POST" class="center-form">
+          <div >
+            <input type="text" name="content" class="form-control p-4" autocomplete="off" required>
+          </div>
+           <input  type="submit"  value="Search" class="btn btn-primary mt-4 pr-3 pl-3">
+        </form>
+        </div>
+       <div id="preload" class="col-12 text-center" style="display: none;">
+         <img src="../static/images/loading.gif">
+       </div>
+     </div>
+    </div>
+  <!-- search end -->
+  <!-- about start -->
+ 
+   <div class="container-fluid about-div" id="about-div-id">
+     <div class="row m-2">
+       <div class="col-md-6 about-div-img p-4">
+        <img src="../static/images/barnd-final-cut.png" class="img-fluid"/>
+       </div>
+       <div class="col-md-6 about-div-info  p-4">
+         <h3>Review Scrapper is review scrapping website which gives  reviews of  your favourite movies,
+           web series and tv shows.
+         </h3>
+       </div>
+     </div>
+   </div>
+  <!-- about section end -->
+  
+
+  <!-- footer section start -->
+  <div class="container mt-4 mb-4">
+    <div class="row">
+      <div class="col-12">
+        <footer class="myfooter">
+          <h3>Copyright@<span id="get-year"></span> by Sushil Varande</h3>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+     crossorigin="anonymous">
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" 
+crossorigin="anonymous">
+</script>
+<script>
+  const getyr=new Date();
+  document.getElementById("get-year").innerHTML=getyr.getFullYear();
+
+ function preloader(){
+ document.getElementById("preload").style.display = "block";
+ }
+
+</script>
+
+</html>

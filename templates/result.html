@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block result %}
+   <!-- search result start -->
+ {% for review in reviews %}
+   <div class="container search-result mt-4 mb-4">
+       <div class="row user-name">
+           <div class="col-12 text-center">
+            <h3>{{review['Name'] }}</h3>
+          </div>
+       </div>
+       <div class="row">
+           <div class="col-md-6 movie-name text-center">
+           <h4>{{review['Movie'] }}</h4>
+           </div>
+           <div class="col-md-6 movie-rating text-center">
+           <h4>{{review['Rating'] }}<i class="fa fa-star"  style="color:yellow" aria-hidden="true"></i></h4>
+           </div>
+       </div>
+       <div class="row comment">
+           <div class="col-12">
+             <h4 class="text-center">{{review['CommentHead'] }}</h4>
+            <h6>{{review['Comment'] }}</h6>
+           </div>
+       </div>
+   </div>
+   {% endfor %}
+   {% endblock %}
+   <!-- search result end -->
+  
+  
