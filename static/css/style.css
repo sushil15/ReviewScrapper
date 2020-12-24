@@ -159,6 +159,7 @@ box-shadow: 4px 1px 41px 8px rgba(57,23,191,1);
 
 .search-result{
     max-height:100%;
+    border-radius:20px;
     -webkit-box-shadow: 4px 1px 32px 4px rgba(235,217,235,0.88);
     -moz-box-shadow: 4px 1px 32px 4px rgba(235,217,235,0.88);
     box-shadow: 4px 1px 32px 4px rgba(235,217,235,0.88);
