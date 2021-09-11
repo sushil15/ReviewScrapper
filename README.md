@@ -7,7 +7,7 @@ of movies.tv shows ,web series etc.
 
 ## 
 
-![App Screenshot](https://www.linkpicture.com/q/fastwether.png)
+![App Screenshot](https://www.linkpicture.com/q/reviewscrapper_3.png)
 
   
 ## Demo
